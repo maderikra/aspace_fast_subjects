@@ -5,46 +5,31 @@ function insertfast() {
 
 
 //first check to see if we have data to be parsed in the URL; if not, stop here
-
-
 var urlstring = window.location.search.substring(1);
 
 if (urlstring.length > 0) {
 
 var marcstring = urlstring.split("=")[1];
 
-
 //check to make sure there is a value (it could be empty if someone clicks "add to archivesspace" when the box is empty)
 if (marcstring.length > 0) {
-
-
 
 //cleanup encoding as it comes over from the fast API
 marcstring = decodeURIComponent(marcstring);
 
-
 //strip of leading equal sign
 marcstring = marcstring.substring(1,marcstring.length);
-
-console.log(marcstring);
 
 //change plus signs to spaces
 marcstring = marcstring.replace(/\+/g, ' ');
 
-
-
-
 //get 6xx field
 var sixhundred = marcstring.substring(0,3);
 
-console.log(sixhundred);
 
 //get indicators
 var firstindicator =  marcstring.substring(5,6);
 var secondindicator = marcstring.substring(6,7);
-
-console.log(firstindicator);
-console.log(secondindicator);
 
 //get position of $fast to find where the subject terms end
 var fastpos =  marcstring.indexOf("$2fast"); 
@@ -68,19 +53,11 @@ var subjectterms = marcstring.substring(8,fastpos);
 //get rid of URL encoded characters
 subjectterms = decodeURI(subjectterms);
 
-console.log(subjectterms);
-
-
 //split at dollar sign to get all subfields
 var subfields =  subjectterms.split("$"); 
 
-
-console.log(subfields);
-
 //count total subfields
 var numberfields = subfields.length;
-
-
 
 //create as many subfields boxes as there are subfields (start at 1 instead of 0, because the first box already exists)
 for (i = 1; i < subfields.length; i++) {
@@ -98,8 +75,6 @@ $("#subject_terms__" + i + "_ input[name='subject[terms][0][term]']").attr("name
 $("#subject_terms__" + i + "_ select[name='subject[terms][0][term_type]']").attr("name", "subject[terms][" + i + "][term_type]");
 $('#subject_terms__' + i + '_ #subject_terms__0__vocabulary_').attr('id', 'subject_terms__' + i + '__vocabulary_');
 $("#subject_terms__" + i + "_ input[name='subject[terms][0][vocabulary]']").attr("name", "subject[terms][" + i + "][vocabulary]");
-
-
 
 }
 
@@ -138,8 +113,6 @@ if (subfieldcode == 'v'){
 $("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
 $("#subject_terms__" + i + "__term_type_ option[value='genre_form']").attr("selected","selected");
 }
-
-
 
 
 }

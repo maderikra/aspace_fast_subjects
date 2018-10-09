@@ -1,9 +1,6 @@
-
-var subjectProxy = "https://fast.oclc.org/searchfast/fastsuggest?";
-//var subjectProxy = "http://rdap01dxdu.dev.oclc.org:60502/searchfast/fastSuggest?";
+var subjectProxy = "//fast.oclc.org/searchfast/fastsuggest?";
 
 var subjectDB =  "autoSubject";
-//var subjectDB =  "assignFAST118";
 
 /**
 **     autoSubject 
