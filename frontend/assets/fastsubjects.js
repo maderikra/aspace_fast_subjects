@@ -87,6 +87,14 @@ if (sixhundred == '651') {
   $("#subject_terms__0__term_type_ option[value='topical']").removeAttr("selected");
   $("#subject_terms__0__term_type_ option[value='geographic']").attr("selected","selected");
 }
+else if  (sixhundred == '655'){
+  $("#subject_terms__0__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__0__term_type_ option[value='genre_form']").attr("selected","selected");
+}
+else if  (sixhundred == '630'){
+  $("#subject_terms__0__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__0__term_type_ option[value='uniform_title']").attr("selected","selected");
+}
 else{
   $("#subject_terms__0__term_type_ option[value='topical']").attr("selected","selected");
 }
