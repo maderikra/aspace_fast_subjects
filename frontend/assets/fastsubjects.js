@@ -11,8 +11,8 @@ if (urlstring.length > 0) {
 
 var marcstring = urlstring.split("=")[1];
 
-//check to make sure there is a value (it could be empty if someone clicks "add to archivesspace" when the box is empty)
-if (marcstring.length > 0) {
+//check to make sure there is a valid value (it could be empty if someone clicks "add to archivesspace" before the MARC loads)
+if (marcstring.indexOf('OCoLC') > 0) {
 
 //cleanup encoding as it comes over from the fast API
 marcstring = decodeURIComponent(marcstring);
@@ -84,10 +84,13 @@ $("#subject_terms__" + i + "_ input[name='subject[terms][0][vocabulary]']").attr
 
 //first, set top level subject type based on 6xx field
 if (sixhundred == '651') {
-$("#subject_terms__0__term_type_ option[value='topical']").removeAttr("selected");
-$("#subject_terms__0__term_type_ option[value='geographic']").attr("selected","selected");
-
+  $("#subject_terms__0__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__0__term_type_ option[value='geographic']").attr("selected","selected");
 }
+else{
+  $("#subject_terms__0__term_type_ option[value='topical']").attr("selected","selected");
+}
+
 
 for (i = 0; i < subfields.length; i++) {
 
@@ -98,20 +101,22 @@ $("#subject_terms__" + i + "__term_" ).val(subfields[i].substring(1,subfields[i]
 //get subfield code
 var subfieldcode = subfields[i].substring(0,1);
 
-//change topical option if necessary
+if (subfieldcode == 'x'){
+  $("#subject_terms__" + i + "__term_type_ option[value='topical']").attr("selected","selected");
+}
 if (subfieldcode == 'z'){
-$("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
-$("#subject_terms__" + i + "__term_type_ option[value='geographic']").attr("selected","selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='geographic']").attr("selected","selected");
 }
 
 if (subfieldcode == 'y'){
-$("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
-$("#subject_terms__" + i + "__term_type_ option[value='temporal']").attr("selected","selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='temporal']").attr("selected","selected");
 }
 
 if (subfieldcode == 'v'){
-$("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
-$("#subject_terms__" + i + "__term_type_ option[value='genre_form']").attr("selected","selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='topical']").removeAttr("selected");
+  $("#subject_terms__" + i + "__term_type_ option[value='genre_form']").attr("selected","selected");
 }
 
 
