@@ -26,9 +26,8 @@ Before using the plugin for the first time, FAST needs to be added as a valid su
 2. Clicking on a search result will insert its facets into the Terms and Subdivisions section of the current page (you may need to scroll to see it).
 3. Be sure to SAVE your new subject record! 
 
-![Demonstration](assets/gpP6zrOgiY.gif)
 
-
+<img src="assets/gpP6zrOgiY.gif" alt="Logo" width="700" />
 
 # About
 This plugin incorporates OCLC's FAST into the New Subject interface to allow users to dynamically look up and add FAST subject headings to ArchivesSpace. It is compatible with ArchivesSpace v3.5 (previous version compatability is likely but not guaranteed).

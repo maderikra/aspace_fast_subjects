@@ -1,0 +1,41 @@
+.fastForm{
+    padding: 2px 10px 10px;
+    border-radius: 5px 5px 0 0;
+    background: white;
+    border-bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0,0,0,0.2);
+}
+.fastForm input {
+    display: inline;
+}
+.fastAbout{
+    padding-top: 5px;
+}
+.fastTitle{
+    color: #007cad;
+    font-weight: bold;
+}
+
+/*For the on the fly search results */
+#search-results {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 12px;
+    position: absolute;
+    background-color: white;
+    width: 600px;
+    z-index: 1000;
+    display: none;
+   /* Hidden initially */
+}
+.result-item {
+    padding: 8px;
+    cursor: pointer;
+}
+.result-item:hover {
+    background-color: #f0f0f0;
+}
+.bold {
+    font-weight: bold;
+}
