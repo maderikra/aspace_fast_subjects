@@ -2,10 +2,10 @@
 
 
 ## Install Plugin
-1. Unzip the latest release into your archivesspace/plugins directory (this will create a new directory named "fast_subjects" inside the plugins directory). 
-2. Add "fast_subjects" to the AppConfig[:plugins] property in config.rb.
+1. Unzip the latest release into your archivesspace/plugins directory (this will create a new directory named "aspace_fast_subjects" inside the plugins directory). 
+2. Add "aspace_fast_subjects" to the AppConfig[:plugins] property in config.rb.
     \#\# Plug-ins to load. They will load in the order specified
-    AppConfig[:plugins] = ['local', 'lcnaf','fast_subjects']
+    AppConfig[:plugins] = ['local', 'lcnaf','aspace_fast_subjects']
 3. Restart ArchivesSpace.
 
 
