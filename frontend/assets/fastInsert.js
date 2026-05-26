@@ -3,14 +3,15 @@ $(document).ready(insertfast);
 function insertfast() {
 
 	//first check to see if we have data to be parsed in the URL; if not, stop here
-	var urlstring = window.location.search.substring(1);
+	var params = new URLSearchParams(window.location.search);
+	var urlstring = params.get('fast') || window.location.search.substring(1);
 
 	if (urlstring.length > 0) {
 
-		var marcstring = urlstring.split("=")[1];
+		var marcstring = params.get('fast') || urlstring.split("=")[1];
 
 		//check to make sure there is a valid value (it could be empty if someone clicks "add to archivesspace" before the MARC loads)
-		if (marcstring.indexOf('OCoLC') > 0) {
+		if (marcstring && marcstring.indexOf('OCoLC') > 0) {
 
 			//cleanup encoding as it comes over from the fast API
 			marcstring = decodeURIComponent(marcstring);
