@@ -50,8 +50,11 @@ function displayResults(results) {
 			input.value = result.raw || result.auth;
 			resultsDiv.style.display = 'none'; // Hide results after selection
             //append result to url and reload page
-			const url = `${window.location.origin}/subjects/new?=${result.tag}%20%20${result.indicator}7$a${input.value}$2fast$0(OCoLC)${result.idroot[0]}`;
-			window.location.href = url;
+			const url = new URL(window.location.href);
+			url.search = new URLSearchParams({
+				fast: `${result.tag}  ${result.indicator}7$a${input.value}$2fast$0(OCoLC)${result.idroot[0]}`
+			}).toString();
+			window.location.href = url.toString();
 		});
 
 		resultsDiv.appendChild(div);
